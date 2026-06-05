@@ -1,14 +1,31 @@
-// Language toggle + persist across pages
+// Language: URL-based (/vi /en /zh) on static build, JS toggle on WP dev
 const html = document.documentElement;
-function setLang(l){
+function applyLang(l){
   html.dataset.lang = l; html.lang = (l==='zh'?'zh-Hans':l);
-  try{ localStorage.setItem('serene_lang', l); }catch(e){}
-  document.querySelectorAll('.lang button').forEach(x=>x.classList.toggle('active', x.dataset.set===l));
+  document.querySelectorAll('.lang [data-set]').forEach(x=>x.classList.toggle('active', x.dataset.set===l));
 }
-try{ const saved = localStorage.getItem('serene_lang'); if(saved){ setLang(saved); } }catch(e){}
-document.querySelectorAll('.lang button').forEach(b=>{
-  b.addEventListener('click', ()=> setLang(b.dataset.set));
-});
+const langSeg = location.pathname.match(/\/(vi|en|zh)(?=\/|$)/);
+if (langSeg) {
+  // Static multilingual: trust URL segment, switch by navigating
+  applyLang(langSeg[1]);
+  document.querySelectorAll('.lang [data-set]').forEach(b=>{
+    b.addEventListener('click', e=>{
+      e.preventDefault();
+      const l = b.dataset.set;
+      const p = location.pathname.replace(/\/(vi|en|zh)(?=\/|$)/, '/'+l);
+      location.href = p + location.hash;
+    });
+  });
+} else {
+  // WP dev / non-prefixed: keep baked lang, allow JS toggle with persistence
+  try{ const s=localStorage.getItem('serene_lang'); if(s) applyLang(s); }catch(e){}
+  document.querySelectorAll('.lang [data-set]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const l=b.dataset.set; applyLang(l);
+      try{ localStorage.setItem('serene_lang', l); }catch(e){}
+    });
+  });
+}
 // Mobile nav
 const burger=document.getElementById('burger'), nav=document.getElementById('nav');
 burger?.addEventListener('click',()=>nav.classList.toggle('open'));
