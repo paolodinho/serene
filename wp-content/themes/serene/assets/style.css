@@ -409,3 +409,16 @@ p,.lede,.muted{text-wrap:pretty}
   .topbar .ota-top + .sep{display:none}      /* bỏ dấu | thừa khi ẩn OTA */
   .topbar .sep{margin-inline:10px}
 }
+
+/* ---------- Hiệu ứng chuyển động (tôn trọng prefers-reduced-motion) ---------- */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s cubic-bezier(.16,.84,.44,1)}
+  .reveal.in{opacity:1;transform:none}
+  /* Ken Burns rất chậm cho ảnh hero */
+  .hero-bg img{animation:serene-kb 24s ease-in-out infinite alternate;will-change:transform}
+  @keyframes serene-kb{from{transform:scale(1.0)}to{transform:scale(1.08)}}
+  /* Hero load-in từng dòng */
+  .hero .stars,.hero h1,.hero .lede,.hero .nav-cta{opacity:0;animation:serene-up .9s cubic-bezier(.16,.84,.44,1) forwards}
+  .hero h1{animation-delay:.10s}.hero .lede{animation-delay:.22s}.hero .nav-cta{animation-delay:.34s}
+  @keyframes serene-up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+}

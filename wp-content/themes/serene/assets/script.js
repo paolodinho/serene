@@ -58,3 +58,47 @@ addEventListener('scroll',()=>{header.style.boxShadow=scrollY>20?'var(--shadow-m
     if(tgt){ e.preventDefault(); tgt.scrollIntoView({behavior:'smooth'}); setTimeout(()=>fName&&fName.focus(),500); }
   });
 })();
+
+// ---------- Hiệu ứng: scroll reveal + đếm số ----------
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  const groups = ['.usp .item','.stats .stat','.about .imgwrap','.about .grid > div:first-child',
+    '.sec-head','.rooms-grid .room-card','.amen-list li','.exp-card','.gallery-grid img',
+    '.reviews-grid .review-card','.blog-grid .blog-card','.room-detail','.offer-card','.contact-wrap > *','.post-body'];
+  const seen = new Set();
+  groups.forEach(sel=>{
+    document.querySelectorAll(sel).forEach((el,i)=>{
+      if(seen.has(el)) return; seen.add(el);
+      el.classList.add('reveal');
+      el.dataset.rev = Math.min(i,6);   // stagger index (không gắn transition-delay để không ảnh hưởng hover)
+    });
+  });
+  const io = new IntersectionObserver((ents,obs)=>{
+    ents.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el=e.target, d=(+el.dataset.rev||0)*70;
+      setTimeout(()=>el.classList.add('in'), d);
+      if(el.matches('.stat')) setTimeout(()=>countStat(el), d);
+      obs.unobserve(el);
+    });
+  }, {threshold:.16, rootMargin:'0px 0px -8% 0px'});
+  seen.forEach(el=>io.observe(el));
+
+  function countStat(stat){
+    const b=stat.querySelector('b'); if(!b) return;
+    const node=[...b.childNodes].find(n=>n.nodeType===3 && n.textContent.trim());
+    if(!node) return;
+    const raw=node.textContent.trim();
+    if(raw.includes('/')) return;                 // "24/7" giữ nguyên
+    const m=raw.match(/^([\d.,]+)(.*)$/); if(!m) return;
+    const suffix=m[1+1]||'', hasComma=m[1].includes(',');
+    const target=parseFloat(m[1].replace(',','.')); if(isNaN(target)) return;
+    const dec=hasComma?1:0, dur=1100, t0=performance.now();
+    (function tick(t){
+      const p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
+      node.textContent=(target*e).toFixed(dec).replace('.',',')+suffix;
+      if(p<1) requestAnimationFrame(tick);
+    })(performance.now());
+  }
+})();
