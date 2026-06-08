@@ -237,7 +237,7 @@ section[id]{scroll-margin-top:92px}
   /* Ẩn nút "Đặt phòng" trong header trên mobile — dùng hamburger + link trong nav */
   .nav-cta .btn{display:none}
   /* Nút đặt phòng trong mobile nav: hiển thị đầy đủ */
-  .nav .nav-book-btn{display:flex;justify-content:center;border-bottom:none;margin-top:8px}
+  .nav .nav-book-btn{display:flex;justify-content:center;text-align:center;border-bottom:none;margin-top:8px;width:100%}
   .about .grid,.loc.grid{grid-template-columns:1fr}
   .about .imgwrap{order:-1}
   .rooms-grid,.amen-list,.usp .container,.site-footer .grid{grid-template-columns:1fr}
