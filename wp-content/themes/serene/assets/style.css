@@ -85,6 +85,7 @@ section[id]{scroll-margin-top:92px}
 .nav a:hover::after{width:100%}
 .nav-cta{display:flex;align-items:center;gap:14px}
 .burger{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--color-brand-primary)}
+.nav .nav-book-btn{display:none}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
@@ -233,6 +234,10 @@ section[id]{scroll-margin-top:92px}
   .nav.open{transform:translateY(0)}
   .nav a{padding:14px 0;border-bottom:1px solid var(--color-line)}
   .burger{display:block}
+  /* Ẩn nút "Đặt phòng" trong header trên mobile — dùng hamburger + link trong nav */
+  .nav-cta .btn{display:none}
+  /* Nút đặt phòng trong mobile nav: hiển thị đầy đủ */
+  .nav .nav-book-btn{display:flex;justify-content:center;border-bottom:none;margin-top:8px}
   .about .grid,.loc.grid{grid-template-columns:1fr}
   .about .imgwrap{order:-1}
   .rooms-grid,.amen-list,.usp .container,.site-footer .grid{grid-template-columns:1fr}
