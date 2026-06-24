@@ -175,9 +175,32 @@ section[id]{scroll-margin-top:92px}
 .exp-card .cap p{font-size:.85rem;color:rgba(255,255,255,.8);margin:0}
 
 /* ---------- Gallery ---------- */
-.gallery-grid{columns:4;column-gap:14px;margin-top:40px}
-.gallery-grid img{width:100%;margin-bottom:14px;border-radius:var(--radius-md);break-inside:avoid;transition:.3s}
-.gallery-grid img:hover{filter:brightness(1.05);transform:scale(1.01)}
+.gallery-filter{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:28px 0 0}
+.gf-btn{
+  padding:8px 22px;border:1.5px solid var(--color-line);border-radius:var(--radius-sm);
+  background:transparent;color:var(--color-text-muted);
+  font-family:var(--font-body);font-size:.8rem;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;cursor:pointer;
+  transition:border-color .2s,color .2s,background .2s;white-space:nowrap
+}
+.gf-btn:hover{border-color:var(--color-action-primary);color:var(--color-action-primary)}
+.gf-btn.active{background:var(--color-brand-primary);border-color:var(--color-brand-primary);color:#fff}
+
+.gallery-grid{columns:4;column-gap:14px;margin-top:28px}
+.gallery-item{
+  display:block;position:relative;margin-bottom:14px;break-inside:avoid;
+  border-radius:var(--radius-md);overflow:hidden;cursor:zoom-in
+}
+.gallery-item img{width:100%;display:block;transition:transform .45s ease}
+.gallery-item:hover img{transform:scale(1.05)}
+.gal-overlay{
+  position:absolute;inset:0;
+  background:rgba(10,42,50,.3);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .3s
+}
+.gallery-item:hover .gal-overlay{opacity:1}
+.gallery-item.gf-hidden{display:none}
 
 /* ---------- Review ---------- */
 .review{background:var(--color-brand-primary);color:var(--color-text-onDark);text-align:center}
@@ -243,6 +266,7 @@ section[id]{scroll-margin-top:92px}
   .rooms-grid,.amen-list,.usp .container,.site-footer .grid{grid-template-columns:1fr}
   .exp-grid{grid-template-columns:1fr}.exp-card:first-child{grid-column:span 1}
   .gallery-grid{columns:2}
+  .gallery-filter{gap:6px}.gf-btn{padding:7px 14px;font-size:.75rem}
   .booking{grid-template-columns:1fr}.booking .field{border-right:none;border-bottom:1px solid var(--color-line)}
   .topbar .hide-sm{display:none}
 }

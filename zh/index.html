@@ -18,6 +18,7 @@
 <meta name="twitter:title" content="Serene Hotel Tuần Châu &#8211; Khách sạn boutique bên bến du thuyền Tuần Châu, Hạ Long">
 <meta name="twitter:description" content="Serene Hotel Tuần Châu - khách sạn boutique 5★ bên Tuần Châu Marina, Hạ Long. Phòng view marina, sát điểm đi du thuyền vịnh Hạ Long. Đặt phòng trực tiếp giá tốt.">
 <meta name="twitter:image" content="../wp-content/themes/serene/assets/img/exterior/facade-lantern-street-night.jpg">
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link rel="alternate" title="oNhúng (JSON)" type="application/json+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F127.0.0.1%3A8090%2F" />
 <link rel="alternate" title="oNhúng (XML)" type="text/xml+oembed" href="./wp-json/oembed/1.0/embed?url=http%3A%2F%2F127.0.0.1%3A8090%2F&#038;format=xml" />
@@ -58,6 +59,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <link rel='stylesheet' id='contact-form-7-css' href='../wp-content/plugins/contact-form-7/includes/css/styles.css' media='all' />
 <link rel='stylesheet' id='serene-fonts-css' href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&#038;family=Be+Vietnam+Pro:wght@400;500;600;700&#038;display=swap' media='all' />
+<link rel='stylesheet' id='glightbox-css' href='https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css' media='all' />
 <link rel='stylesheet' id='serene-main-css' href='../wp-content/themes/serene/assets/style.css' media='all' />
 <link rel="https://api.w.org/" href="./wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="./wp-json/wp/v2/pages/5" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="./xmlrpc.php?rsd" />
 <meta name="generator" content="WordPress 7.0" />
@@ -252,24 +254,169 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <!-- GALLERY -->
 <section id="gallery" style="background:var(--color-surface-elevated)">
   <div class="container">
-    <div class="sec-head center"><p class="eyebrow"><span class="vi">Thư viện</span><span class="en">Gallery</span><span class="zh">相册</span></p>
-      <h2><span class="vi">Khoảnh khắc tại Serene</span><span class="en">Moments at Serene</span><span class="zh">Serene 的精彩瞬间</span></h2></div>
-    <div class="gallery-grid">
-      <img src="../wp-content/themes/serene/assets/img/rooms/deluxe-marina-view.jpg" alt="Phòng Deluxe view marina">
-      <img src="../wp-content/themes/serene/assets/img/gallery/room-marina-301.jpg" alt="Phòng view bến du thuyền">
-      <img src="../wp-content/themes/serene/assets/img/gallery/room-balcony-301.jpg" alt="Ban công nhìn ra marina">
-      <img src="../wp-content/themes/serene/assets/img/gallery/twin-302.jpg" alt="Phòng twin">
-      <img src="../wp-content/themes/serene/assets/img/gallery/marina-promenade-day.jpg" alt="Bến du thuyền ban ngày">
-      <img src="../wp-content/themes/serene/assets/img/rooms/bathroom-glass-shower.jpg" alt="Phòng tắm">
-      <img src="../wp-content/themes/serene/assets/img/rooms/room-entrance.jpg" alt="Lối vào phòng">
-      <img src="../wp-content/themes/serene/assets/img/rooms/superior-tv-view.jpg" alt="Góc làm việc trong phòng tại Serene Hotel">
-      <img src="../wp-content/themes/serene/assets/img/gallery/breakfast-pho.jpg" alt="Bữa sáng">
-      <img src="../wp-content/themes/serene/assets/img/rooms/marina-view-desk.jpg" alt="Phòng view marina">
-      <img src="../wp-content/themes/serene/assets/img/exterior/building-facade-day.jpg" alt="Ngoại thất">
-      <img src="../wp-content/themes/serene/assets/img/gallery/marina-boats-flowers.jpg" alt="Marina">
-      <img src="../wp-content/themes/serene/assets/img/rooms/standard-tv-bed.jpg" alt="Phòng Standard">
-      <img src="../wp-content/themes/serene/assets/img/gallery/marina-sunset.jpg" alt="Hoàng hôn">
+    <div class="sec-head center">
+      <p class="eyebrow"><span class="vi">Thư viện</span><span class="en">Gallery</span><span class="zh">相册</span></p>
+      <h2><span class="vi">Khoảnh khắc tại Serene</span><span class="en">Moments at Serene</span><span class="zh">Serene 的精彩瞬间</span></h2>
     </div>
+    <div class="gallery-filter" role="tablist">
+      <button class="gf-btn active" data-filter="*">
+        <span class="vi">Tất cả</span><span class="en">All</span><span class="zh">全部</span>
+      </button>
+      <button class="gf-btn" data-filter="phong">
+        <span class="vi">Phòng ngủ</span><span class="en">Rooms</span><span class="zh">客房</span>
+      </button>
+      <button class="gf-btn" data-filter="view">
+        <span class="vi">Cảnh quan</span><span class="en">Views</span><span class="zh">景观</span>
+      </button>
+      <button class="gf-btn" data-filter="tienich">
+        <span class="vi">Tiện ích</span><span class="en">Amenities</span><span class="zh">设施</span>
+      </button>
+      <button class="gf-btn" data-filter="amthuc">
+        <span class="vi">Ẩm thực</span><span class="en">Dining</span><span class="zh">餐饮</span>
+      </button>
+    </div>
+    <div class="gallery-grid">
+            <a href="../wp-content/themes/serene/assets/img/rooms/deluxe-marina-view.jpg"
+         class="gallery-item"
+         data-cat="phong"
+         data-gallery="serene-gallery"
+         data-title-vi="Phòng Deluxe - View&nbsp;marina"
+         data-title-en="Deluxe Room - Marina view"
+         data-title-zh="豪华客房 - 游艇港全景">
+        <img src="../wp-content/themes/serene/assets/img/rooms/deluxe-marina-view.jpg" alt="Phòng Deluxe - View&nbsp;marina" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/gallery/room-marina-301.jpg"
+         class="gallery-item"
+         data-cat="phong"
+         data-gallery="serene-gallery"
+         data-title-vi="Phòng 301 - Nhìn ra bến&nbsp;tàu"
+         data-title-en="Room 301 - Harbour view"
+         data-title-zh="301号房 - 码头景观">
+        <img src="../wp-content/themes/serene/assets/img/gallery/room-marina-301.jpg" alt="Phòng 301 - Nhìn ra bến&nbsp;tàu" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/gallery/room-balcony-301.jpg"
+         class="gallery-item"
+         data-cat="phong"
+         data-gallery="serene-gallery"
+         data-title-vi="Ban công nhìn thẳng ra&nbsp;marina"
+         data-title-en="Balcony overlooking the&nbsp;marina"
+         data-title-zh="阳台俯瞰游艇港">
+        <img src="../wp-content/themes/serene/assets/img/gallery/room-balcony-301.jpg" alt="Ban công nhìn thẳng ra&nbsp;marina" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/gallery/twin-302.jpg"
+         class="gallery-item"
+         data-cat="phong"
+         data-gallery="serene-gallery"
+         data-title-vi="Phòng Twin - 2 giường&nbsp;đơn"
+         data-title-en="Twin Room - Two single&nbsp;beds"
+         data-title-zh="双床房 - 2张单人床">
+        <img src="../wp-content/themes/serene/assets/img/gallery/twin-302.jpg" alt="Phòng Twin - 2 giường&nbsp;đơn" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/gallery/marina-promenade-day.jpg"
+         class="gallery-item"
+         data-cat="view"
+         data-gallery="serene-gallery"
+         data-title-vi="Bến du thuyền Tuần Châu ban ngày"
+         data-title-en="Tuan Chau Marina by day"
+         data-title-zh="俊州游艇港白天">
+        <img src="../wp-content/themes/serene/assets/img/gallery/marina-promenade-day.jpg" alt="Bến du thuyền Tuần Châu ban ngày" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/rooms/bathroom-glass-shower.jpg"
+         class="gallery-item"
+         data-cat="tienich"
+         data-gallery="serene-gallery"
+         data-title-vi="Phòng tắm kính - thiết kế&nbsp;cao cấp"
+         data-title-en="Premium glass shower enclosure"
+         data-title-zh="豪华玻璃淋浴间">
+        <img src="../wp-content/themes/serene/assets/img/rooms/bathroom-glass-shower.jpg" alt="Phòng tắm kính - thiết kế&nbsp;cao cấp" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/rooms/room-entrance.jpg"
+         class="gallery-item"
+         data-cat="tienich"
+         data-gallery="serene-gallery"
+         data-title-vi="Lối vào phòng riêng&nbsp;tư"
+         data-title-en="Private room entrance"
+         data-title-zh="独立房间入口">
+        <img src="../wp-content/themes/serene/assets/img/rooms/room-entrance.jpg" alt="Lối vào phòng riêng&nbsp;tư" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/rooms/superior-tv-view.jpg"
+         class="gallery-item"
+         data-cat="tienich"
+         data-gallery="serene-gallery"
+         data-title-vi="Góc giải trí - TV&nbsp;lớn"
+         data-title-en="Entertainment corner - Large TV"
+         data-title-zh="娱乐区 - 大屏电视">
+        <img src="../wp-content/themes/serene/assets/img/rooms/superior-tv-view.jpg" alt="Góc giải trí - TV&nbsp;lớn" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/gallery/breakfast-pho.jpg"
+         class="gallery-item"
+         data-cat="amthuc"
+         data-gallery="serene-gallery"
+         data-title-vi="Bữa sáng - Phở đặc trưng&nbsp;Hạ Long"
+         data-title-en="Breakfast - Signature Halong Pho"
+         data-title-zh="早餐 - 下龙湾特色河粉">
+        <img src="../wp-content/themes/serene/assets/img/gallery/breakfast-pho.jpg" alt="Bữa sáng - Phở đặc trưng&nbsp;Hạ Long" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/rooms/marina-view-desk.jpg"
+         class="gallery-item"
+         data-cat="phong"
+         data-gallery="serene-gallery"
+         data-title-vi="Bàn làm việc - Tầm nhìn ra&nbsp;cảng"
+         data-title-en="Work desk with harbour view"
+         data-title-zh="工作台 - 俯瞰港口">
+        <img src="../wp-content/themes/serene/assets/img/rooms/marina-view-desk.jpg" alt="Bàn làm việc - Tầm nhìn ra&nbsp;cảng" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/exterior/building-facade-day.jpg"
+         class="gallery-item"
+         data-cat="view"
+         data-gallery="serene-gallery"
+         data-title-vi="Mặt tiền Serene Hotel"
+         data-title-en="Serene Hotel facade"
+         data-title-zh="Serene酒店外观">
+        <img src="../wp-content/themes/serene/assets/img/exterior/building-facade-day.jpg" alt="Mặt tiền Serene Hotel" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/gallery/marina-boats-flowers.jpg"
+         class="gallery-item"
+         data-cat="view"
+         data-gallery="serene-gallery"
+         data-title-vi="Du thuyền và hoa tại bến&nbsp;Tuần Châu"
+         data-title-en="Yachts and blooms at Tuan&nbsp;Chau"
+         data-title-zh="俊州港游艇与花卉">
+        <img src="../wp-content/themes/serene/assets/img/gallery/marina-boats-flowers.jpg" alt="Du thuyền và hoa tại bến&nbsp;Tuần Châu" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/rooms/standard-tv-bed.jpg"
+         class="gallery-item"
+         data-cat="phong"
+         data-gallery="serene-gallery"
+         data-title-vi="Phòng Standard - Thoải mái và&nbsp;gọn"
+         data-title-en="Standard Room - Cozy and&nbsp;compact"
+         data-title-zh="标准间 - 舒适简洁">
+        <img src="../wp-content/themes/serene/assets/img/rooms/standard-tv-bed.jpg" alt="Phòng Standard - Thoải mái và&nbsp;gọn" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+            <a href="../wp-content/themes/serene/assets/img/gallery/marina-sunset.jpg"
+         class="gallery-item"
+         data-cat="view"
+         data-gallery="serene-gallery"
+         data-title-vi="Hoàng hôn trên bến du&nbsp;thuyền"
+         data-title-en="Sunset over the marina"
+         data-title-zh="游艇港日落美景">
+        <img src="../wp-content/themes/serene/assets/img/gallery/marina-sunset.jpg" alt="Hoàng hôn trên bến du&nbsp;thuyền" loading="lazy">
+        <div class="gal-overlay"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="white" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="16" x2="22" y2="16" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+          </div>
   </div>
 </section>
 
@@ -431,6 +578,7 @@ var wpcf7 = {
 //# sourceURL=contact-form-7-js-before
 </script>
 <script id="contact-form-7-js" src="../wp-content/plugins/contact-form-7/includes/js/index.js"></script>
+<script id="glightbox-js" src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
 <script id="serene-main-js" src="../wp-content/themes/serene/assets/script.js"></script>
 <script id="wp-emoji-settings" type="application/json">
 {"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"./wp-includes/js/wp-emoji-release.min.js"}}

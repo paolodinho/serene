@@ -59,12 +59,67 @@ addEventListener('scroll',()=>{header.style.boxShadow=scrollY>20?'var(--shadow-m
   });
 })();
 
+// ---------- Gallery: filter tabs + GLightbox ----------
+(function(){
+  const filterBtns = document.querySelectorAll('.gf-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  if (!filterBtns.length || !galleryItems.length) return;
+
+  let lb = null;
+
+  function getLang(){
+    return document.documentElement.dataset.lang || 'vi';
+  }
+
+  function buildLightbox(){
+    if (lb) { try{ lb.destroy(); }catch(e){} lb = null; }
+    if (typeof GLightbox === 'undefined') return;
+    const visible = [...galleryItems].filter(el => !el.classList.contains('gf-hidden'));
+    const elements = visible.map(el => {
+      const l = getLang();
+      const title = l === 'en' ? (el.dataset.titleEn || el.dataset.titleVi)
+                  : l === 'zh' ? (el.dataset.titleZh || el.dataset.titleVi)
+                  : el.dataset.titleVi;
+      return { href: el.getAttribute('href'), type: 'image', title: title || '' };
+    });
+    lb = GLightbox({ elements, touchNavigation: true, loop: true, zoomable: true, draggable: true, closeButton: true, openEffect: 'fade', closeEffect: 'fade' });
+    visible.forEach((el, i) => {
+      el.onclick = e => { e.preventDefault(); lb.openAt(i); };
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      galleryItems.forEach(item => {
+        const show = f === '*' || item.dataset.cat === f;
+        item.classList.toggle('gf-hidden', !show);
+      });
+      buildLightbox();
+    });
+  });
+
+  // Init on load
+  if (typeof GLightbox !== 'undefined') {
+    buildLightbox();
+  } else {
+    window.addEventListener('load', buildLightbox);
+  }
+
+  // Rebuild when lang switches (so lightbox shows correct title)
+  document.querySelectorAll('.lang [data-set]').forEach(b => {
+    b.addEventListener('click', () => setTimeout(buildLightbox, 50));
+  });
+})();
+
 // ---------- Hiệu ứng: scroll reveal + đếm số ----------
 (function(){
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce || !('IntersectionObserver' in window)) return;
   const groups = ['.usp .item','.stats .stat','.about .imgwrap','.about .grid > div:first-child',
-    '.sec-head','.rooms-grid .room-card','.amen-list li','.exp-card','.gallery-grid img',
+    '.sec-head','.rooms-grid .room-card','.amen-list li','.exp-card','.gallery-item',
     '.reviews-grid .review-card','.blog-grid .blog-card','.room-detail','.offer-card','.contact-wrap > *','.post-body'];
   const seen = new Set();
   groups.forEach(sel=>{
