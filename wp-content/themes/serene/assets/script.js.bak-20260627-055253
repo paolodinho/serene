@@ -157,10 +157,3 @@ addEventListener('scroll',()=>{header.style.boxShadow=scrollY>20?'var(--shadow-m
     })(performance.now());
   }
 })();
-
-/* CF7: sau khi gửi đặt phòng thành công -> chuyển sang trang Cảm ơn (giữ ngôn ngữ) */
-document.addEventListener('wpcf7mailsent', function(e){
-  var lang = (document.documentElement.dataset.lang || 'vi');
-  var url  = '/cam-on/' + (lang && lang !== 'vi' ? '?lang=' + lang : '');
-  setTimeout(function(){ window.location.href = url; }, 600);
-}, false);
